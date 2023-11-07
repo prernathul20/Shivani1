@@ -1,0 +1,41 @@
+#Fibonecces Series Using NonRecursion
+
+N=int(input("Enter the Number = "))
+a=0
+b=1
+c=0
+if(N<0):
+    print("Invalid Number")
+elif(N==0):
+    print("0",end=" ")
+elif(N==1):
+    print("0 1",end=" ")
+else:
+    print("0 1",end=" ")
+    for i in range(2,N):
+        c=a+b
+        a=b
+        b=c
+        print(c,end=" ")
+
+
+
+----------------------------------------------------------------------------------
+
+#Fibonecces Series Using Recursion
+
+
+N=int(input("Enter the Number = "))
+def fibo(N):
+    if(N==0 or N==1):
+        return N
+       
+    else:
+        return(fibo(N-1)+fibo(N-2))
+if(N<0):
+    print("Invalid Input")
+else:
+    print("Seuence = ")
+    print("0 1",end=" ")
+    for i in range(2,N):
+        print(fibo(i),end=" ")

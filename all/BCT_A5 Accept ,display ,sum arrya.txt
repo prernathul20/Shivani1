@@ -1,0 +1,25 @@
+// SPDX-License-Identifier: MIT
+A5 Accept,display and sum of array
+pragma solidity >=0.4.0;
+contract ArrySum {
+    uint[10] Data;
+
+    function addData(uint [] memory mark) public  {
+        for(uint i=0;i<mark.length;i++){
+            Data[i]=mark[i];
+        }
+    }
+
+    function getData()public view  returns (uint [10] memory) {
+        return Data;
+    }
+
+    function SumofArray() public view returns (uint) {
+        uint sum=0;
+        for(uint i=0;i<Data.length;i++){
+            sum=sum+Data[i];
+        }
+        return sum;
+    }
+    
+}

@@ -1,0 +1,38 @@
+// SPDX-License-Identifier: MIT
+
+pragma solidity >=0.4.0;
+
+contract EmployData {
+    struct employ{
+        uint id;
+        string name;
+        uint salary;
+        string joining_Date; 
+    }
+
+    employ[] employs;
+
+    function addData( uint id,string  memory name,uint salary,string memory joining_Date)public  {
+        employ memory emp = employ(id,name,salary,joining_Date);
+        employs.push(emp);
+    }
+
+    function showData(uint id) public view returns (string memory,uint,string memory){
+        for(uint i=0;i<employs.length;i++){
+            employ memory emp=employs[i];
+
+            if(emp.id==id){
+                return (emp.name,emp.salary,emp.joining_Date);
+            }
+
+
+        }
+        return ("Name Not Found",0,"MM/YYYY");
+    }
+
+    fallback() external payable {
+        employs.push(employ(1,"Bhavesh",50000,"07/11/2023"));
+     }
+     receive() external payable { }
+    
+}
